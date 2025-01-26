@@ -1,0 +1,1 @@
+web: gunicorn blogs_news_project.wsgi
