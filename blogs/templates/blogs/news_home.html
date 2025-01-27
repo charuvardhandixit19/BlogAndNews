@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top News</title>
     <style>
         body {
@@ -59,7 +61,8 @@
 
         .news-item img {
             max-width: 100%;
-            height: auto;
+            height: 200px; /* Fixed height to prevent distortion */
+            object-fit: cover; /* Ensures the image covers the space without stretching */
             border-radius: 5px;
             margin-bottom: 15px;
         }
@@ -80,7 +83,6 @@
             font-size: 16px;
             margin: 10px 0;
         }
-
     </style>
 </head>
 <body>
@@ -92,7 +94,7 @@
     <nav>
         <a href="{% url 'create_blog' %}">Create Blog</a>
         <a href="{% url 'blog_dashboard' %}">Your Blog</a>
-        <a href="{% url 'logout' %}"> lougout</a>
+        <a href="{% url 'logout' %}">Logout</a>
     </nav>
 
     <!-- News Section -->
@@ -102,7 +104,7 @@
         <div class="news-item">
             <!-- Display News Image -->
             {% if article.urlToImage %}
-            <img src="{{ article.urlToImage }}" alt="News Image" height=100px weidth=100px>
+            <img src="{{ article.urlToImage }}" alt="News Image">
             {% endif %}
 
             <!-- Display News Title -->

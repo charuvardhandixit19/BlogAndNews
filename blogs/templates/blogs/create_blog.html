@@ -1,17 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 200px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            margin-top: 5px;
+        }
+    </style>
 </head>
 <body>
-    <h2>Create Blog</h2>
-    <form method="post">
-        {% csrf_token %}
-        <label>Title:</label>
-        <input type="text" name="title" required><br>
-        <label>Content:</label>
-        <textarea name="content" required></textarea><br>
-        <button type="submit">Create</button>
-    </form>
+    <div class="container">
+        <h2>Create Blog</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea name="content" id="content" required></textarea>
+            </div>
+            <button type="submit">Create</button>
+        </form>
+    </div>
 </body>
 </html>
